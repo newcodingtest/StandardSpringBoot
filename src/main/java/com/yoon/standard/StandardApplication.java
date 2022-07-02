@@ -25,6 +25,9 @@ public class StandardApplication implements ApplicationListener<ApplicationReady
 	public void onApplicationEvent(ApplicationReadyEvent event) {
 		log.debug("####");
 		log.info(message);
+		log.debug(message);
+		log.warn(message);
+		log.trace(message);
 		log.debug("####");
 		
 	}
