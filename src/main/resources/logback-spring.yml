@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <property name="APP_NAME" value="standard" />
+
+  <springProfile name="dev">
+    <property name="LOG_PATH" value="./dev.log" />
+  </springProfile>
+  
+  <springProfile name="prod">
+    <property name="LOG_PATH" value="./prod.log" />
+  </springProfile>
+
+    <!-- 콘솔 로그 출력 -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+      <encoder>
+        <Pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n </Pattern>
+      </encoder>
+    </appender>
+
+  <!-- Logstash TEXT 형식으로 파일 로그 생성 -->
+  <!-- {각저장소}/log.txt 파일에 최신 로그 생성 -->
+  <!-- 5MB 초과, 날짜 변경 시점마다 생성, 생성된지 3일 이상된 파일은 삭제 -->
+    <appender name="DEBUG_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+      <encoder>
+        <pattern>%d %-4relative [%thread] %-5level %logger{35} - %msg%n </pattern>
+      </encoder>
+      <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+        <FileNamePattern>${LOG_PATH}/DEBUG/log_%d{yyyy-MM-dd}.%i.txt
+        </FileNamePattern>
+        <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+          <maxHistory>30</maxHistory>
+          <maxFileSize>5MB</maxFileSize>
+        </timeBasedFileNamingAndTriggeringPolicy>       
+      </rollingPolicy>
+
+    </appender>
+
+    <root level="debug" additivity="false">
+      <appender-ref ref="STDOUT" />
+      <appender-ref ref="FILE" />
+    </root>
+    
+  <logger name="org.hibernate.SQL" level="debug" additivity="false">
+    <appender-ref ref="STDOUT" />
+      <appender-ref ref="FILE" />
+  </logger>
+    
+  <logger name="com.psc.cloud.standard" level="debug" additivity="false">
+    <appender-ref ref="STDOUT" />
+      <appender-ref ref="FILE" />
+  </logger>
+</configuration>
