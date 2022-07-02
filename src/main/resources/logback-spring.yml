@@ -39,7 +39,11 @@
       <appender-ref ref="STDOUT" />
       <appender-ref ref="FILE" />
     </root>
-    
+
+   <logger name="dev" level="debug">
+       <appender-ref ref="STDOUT" />
+   </logger>
+       
   <logger name="org.hibernate.SQL" level="debug" additivity="false">
     <appender-ref ref="STDOUT" />
       <appender-ref ref="FILE" />
