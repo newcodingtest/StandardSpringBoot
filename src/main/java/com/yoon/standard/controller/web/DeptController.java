@@ -11,9 +11,9 @@ import com.yoon.standard.service.dept.DeptService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
+@RequiredArgsConstructor
 @Slf4j
 @Controller
-@RequiredArgsConstructor
 public class DeptController {
 
 	private final DeptService deptService;
