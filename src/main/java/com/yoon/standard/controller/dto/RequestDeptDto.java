@@ -1,4 +1,4 @@
-package com.yoon.standard.core.dto;
+package com.yoon.standard.controller.dto;
 
 
 import com.yoon.standard.domain.dept.Dept;
@@ -13,18 +13,18 @@ import lombok.Setter;
 @NoArgsConstructor
 public class RequestDeptDto {
 
-	private Integer deptNo;
+	private Integer deptno;
 	private String dname;
 	private	String loc;
 	
 	@Builder
-	public RequestDeptDto(Integer deptNo,String dname,String loc) {
-		this.deptNo = deptNo;
+	public RequestDeptDto(Integer deptno,String dname,String loc) {
+		this.deptno = deptno;
 		this.dname = dname;
 		this.loc = loc;
 	}
 	
 	public Dept toEntity() {
-		return Dept.builder().deptNo(deptNo).dname(dname).loc(loc).build();
+		return Dept.builder().deptno(deptno).dname(dname).loc(loc).build();
 	}
 }

@@ -1,7 +1,7 @@
-package com.yoon.standard.core.dto;
+package com.yoon.standard.controller.dto;
 
+import com.yoon.standard.core.dto.ShareDTO; 
 import com.yoon.standard.domain.dept.Dept;
-
 import lombok.Getter;
 import lombok.ToString;
 
@@ -9,12 +9,12 @@ import lombok.ToString;
 @ToString
 public class ResponseDeptDto extends ShareDTO {
 
-	private Integer deptNo;
+	private Integer deptno;
 	private String dname;
 	private	String loc; 
 	
 	public ResponseDeptDto(Dept entity) {
-		this.deptNo = entity.getDeptNo();
+		this.deptno = entity.getDeptno();
 		this.dname = entity.getDname();
 		this.loc = entity.getLoc();
 	}

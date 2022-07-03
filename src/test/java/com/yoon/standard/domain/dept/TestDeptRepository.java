@@ -19,7 +19,7 @@ import com.yoon.standard.domain.dept.DeptRepository;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-@ActiveProfiles({"dev", "db-h2"}) //테스트에 적용할 설정파일 적용
+@ActiveProfiles({"dev", "db-maria"}) //테스트에 적용할 설정파일 적용
 @SpringBootTest
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class) //테스트 순서 적용 어노테이션
 public class TestDeptRepository {
@@ -33,10 +33,10 @@ public class TestDeptRepository {
 	public void A001_DEPT_TABLE_입력() {
 		//GIVEN
 		List<Dept> deptList = new ArrayList<Dept>();
-		deptList.add(Dept.builder().deptNo(10).dname("ACCOUNTING").loc("NEW_YORK").build());
-		deptList.add(Dept.builder().deptNo(20).dname("RESEARCH").loc("DALLAS").build());
-		deptList.add(Dept.builder().deptNo(30).dname("SALES").loc("NEW_YORK").build());
-		deptList.add(Dept.builder().deptNo(40).dname("OPERATIONS").loc("BOSTON").build());
+		deptList.add(Dept.builder().deptno(10).dname("ACCOUNTING").loc("NEW_YORK").build());
+		deptList.add(Dept.builder().deptno(20).dname("RESEARCH").loc("DALLAS").build());
+		deptList.add(Dept.builder().deptno(30).dname("SALES").loc("NEW_YORK").build());
+		deptList.add(Dept.builder().deptno(40).dname("OPERATIONS").loc("BOSTON").build());
 		
 		//WHEN
 		deptRepository.saveAll(deptList);
@@ -56,7 +56,7 @@ public class TestDeptRepository {
 		String changeDname = "ACCOUINTING002";
 		
 		//WHEN
-		deptRepository.save(Dept.builder().deptNo(10).dname(changeDname).loc("NEW YORK").build());
+		deptRepository.save(Dept.builder().deptno(10).dname(changeDname).loc("NEW YORK").build());
 		Dept dept = deptRepository.findById(10).get();
 		
 		log.debug("결과: "+dept.toString());
@@ -75,7 +75,7 @@ public class TestDeptRepository {
 		
 		for(Integer deptno : deptnos) {
 			//WHEN
-			deptRepository.delete(Dept.builder().deptNo(deptno).build());
+			deptRepository.delete(Dept.builder().deptno(deptno).build());
 			boolean isPresent = deptRepository.findById(deptno).isPresent();
 			log.debug(String.valueOf(isPresent));
 			

@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Optional;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import com.yoon.standard.core.dto.ResponseDeptDto;
+import com.yoon.standard.controller.dto.ResponseDeptDto;
 import com.yoon.standard.core.exception.BusinessException;
 import com.yoon.standard.domain.dept.Dept;
 import com.yoon.standard.domain.dept.DeptRepository;
@@ -39,7 +39,7 @@ public class DeptServiceImpl implements DeptService {
 	@Transactional
 	@Override
 	public ResponseDeptDto deptInsert(Dept dept) throws BusinessException {
-		Optional<Dept> optionalDept = deptRepository.findById(dept.getDeptNo());
+		Optional<Dept> optionalDept = deptRepository.findById(dept.getDeptno());
 		if(!optionalDept.isPresent()) {
 			return new ResponseDeptDto(deptRepository.save(dept));
 		}else {
@@ -50,7 +50,7 @@ public class DeptServiceImpl implements DeptService {
 	@Transactional
 	@Override
 	public ResponseDeptDto deptUpdate(Dept dept) throws BusinessException {
-		Optional<Dept> optionalDept = deptRepository.findById(dept.getDeptNo());
+		Optional<Dept> optionalDept = deptRepository.findById(dept.getDeptno());
 		if(optionalDept.isPresent()) {
 			return new ResponseDeptDto(deptRepository.save(dept));
 		}else {

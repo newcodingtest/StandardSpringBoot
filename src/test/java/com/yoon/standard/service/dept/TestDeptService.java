@@ -1,6 +1,6 @@
 package com.yoon.standard.service.dept;
 
-import java.util.ArrayList; 
+import java.util.ArrayList;  
 import java.util.List;
 
 import org.assertj.core.api.Assertions;
@@ -13,7 +13,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Commit;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.transaction.annotation.Transactional;
-import com.yoon.standard.core.dto.ResponseDeptDto;
+
+import com.yoon.standard.controller.dto.ResponseDeptDto;
 import com.yoon.standard.domain.dept.Dept;
 import com.yoon.standard.domain.dept.DeptRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -36,10 +37,10 @@ public class TestDeptService {
 	public void A001_DEPT_TABLE_입력() {
 		//GIVEN
 		List<Dept> deptList = new ArrayList<Dept>();
-		deptList.add(Dept.builder().deptNo(10).dname("ACCOUNTING").loc("NEW_YORK").build());
-		deptList.add(Dept.builder().deptNo(20).dname("RESEARCH").loc("DALLAS").build());
-		deptList.add(Dept.builder().deptNo(30).dname("SALES").loc("NEW_YORK").build());
-		deptList.add(Dept.builder().deptNo(40).dname("OPERATIONS").loc("BOSTON").build());
+		deptList.add(Dept.builder().deptno(10).dname("ACCOUNTING").loc("NEW_YORK").build());
+		deptList.add(Dept.builder().deptno(20).dname("RESEARCH").loc("DALLAS").build());
+		deptList.add(Dept.builder().deptno(30).dname("SALES").loc("NEW_YORK").build());
+		deptList.add(Dept.builder().deptno(40).dname("OPERATIONS").loc("BOSTON").build());
 		
 		//WHEN
 		for(Dept dept: deptList) {
@@ -48,9 +49,9 @@ public class TestDeptService {
 		
 		//THEN
 		for(Dept dept: deptList) {
-			Integer deptno = dept.getDeptNo();
+			Integer deptno = dept.getDeptno();
 			ResponseDeptDto responseDeptDto = deptService.deptDetail(deptno);
-			Assertions.assertThat(responseDeptDto.getDeptNo()).isEqualTo(deptno);
+			Assertions.assertThat(responseDeptDto.getDeptno()).isEqualTo(deptno);
 		}
 	}
 		
@@ -63,7 +64,7 @@ public class TestDeptService {
 			String changeDname = "ACCOUINTING002";
 			
 			//WHEN
-			deptService.deptUpdate(Dept.builder().deptNo(10).dname(changeDname).loc("NEW_YORK").build());
+			deptService.deptUpdate(Dept.builder().deptno(10).dname(changeDname).loc("NEW_YORK").build());
 			ResponseDeptDto responseDeptDto = deptService.deptDetail(10);
 			log.debug("결과: "+responseDeptDto.toString());
 			
