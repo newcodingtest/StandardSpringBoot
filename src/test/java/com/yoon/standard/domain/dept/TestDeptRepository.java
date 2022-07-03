@@ -1,4 +1,4 @@
-package com.yoon.standard.domain;
+package com.yoon.standard.domain.dept;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +12,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Commit;
 import org.springframework.test.context.ActiveProfiles;
+
+import com.yoon.standard.domain.dept.Dept;
+import com.yoon.standard.domain.dept.DeptRepository;
 
 import lombok.extern.slf4j.Slf4j;
 

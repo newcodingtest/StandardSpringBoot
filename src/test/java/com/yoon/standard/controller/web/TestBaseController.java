@@ -1,4 +1,4 @@
-package com.yoon.standard.domain.controller.web;
+package com.yoon.standard.controller.web;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;

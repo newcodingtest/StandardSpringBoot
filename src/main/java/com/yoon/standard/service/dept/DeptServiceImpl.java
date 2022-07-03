@@ -1,14 +1,14 @@
-package com.yoon.standard.service;
+package com.yoon.standard.service.dept;
 
-import java.util.ArrayList;
+import java.util.ArrayList; 
 import java.util.List;
 import java.util.Optional;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import com.yoon.standard.core.dto.ResponseDeptDto;
 import com.yoon.standard.core.exception.BusinessException;
-import com.yoon.standard.domain.Dept;
-import com.yoon.standard.domain.DeptRepository;
-import com.yoon.standard.dto.ResponseDeptDto;
+import com.yoon.standard.domain.dept.Dept;
+import com.yoon.standard.domain.dept.DeptRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
@@ -41,18 +41,17 @@ public class DeptServiceImpl implements DeptService {
 	public ResponseDeptDto deptInsert(Dept dept) throws BusinessException {
 		Optional<Dept> optionalDept = deptRepository.findById(dept.getDeptNo());
 		if(!optionalDept.isPresent()) {
-			deptRepository.save(dept);
+			return new ResponseDeptDto(deptRepository.save(dept));
 		}else {
 			throw new BusinessException("해당 부서가 이미 존재합니다."+dept.getDname());
 		}
-		return new ResponseDeptDto(dept);
 	}
 
 	@Transactional
 	@Override
 	public ResponseDeptDto deptUpdate(Dept dept) throws BusinessException {
 		Optional<Dept> optionalDept = deptRepository.findById(dept.getDeptNo());
-		if(!optionalDept.isPresent()) {
+		if(optionalDept.isPresent()) {
 			return new ResponseDeptDto(deptRepository.save(dept));
 		}else {
 			throw new BusinessException("해당 부서가 존재하지 않습니다."+dept.getDname());

@@ -1,7 +1,7 @@
-package com.yoon.standard.dto;
+package com.yoon.standard.core.dto;
 
-import com.yoon.standard.core.dto.ShareDTO;
-import com.yoon.standard.domain.Dept;
+import com.yoon.standard.domain.dept.Dept;
+
 import lombok.Getter;
 import lombok.ToString;
 

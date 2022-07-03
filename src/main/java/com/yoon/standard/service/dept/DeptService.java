@@ -1,9 +1,10 @@
-package com.yoon.standard.service;
+package com.yoon.standard.service.dept;
 
 import java.util.List;
 
-import com.yoon.standard.domain.Dept;
-import com.yoon.standard.dto.ResponseDeptDto;
+import com.yoon.standard.core.dto.ResponseDeptDto;
+import com.yoon.standard.core.exception.BusinessException;
+import com.yoon.standard.domain.dept.Dept;
 
 
 public interface DeptService {

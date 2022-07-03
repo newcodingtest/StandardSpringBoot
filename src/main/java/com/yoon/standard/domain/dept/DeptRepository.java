@@ -1,4 +1,4 @@
-package com.yoon.standard.domain;
+package com.yoon.standard.domain.dept;
 
 import org.springframework.data.repository.CrudRepository;
 

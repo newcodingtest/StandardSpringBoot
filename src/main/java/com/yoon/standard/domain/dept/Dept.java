@@ -1,4 +1,4 @@
-package com.yoon.standard.domain;
+package com.yoon.standard.domain.dept;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
