@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>deptDetail</title>
+</head>
+<body>
+<form method="post" th:action="@{/dept/update}">
+	<tr>
+		<td><input type="text" name="deptno" th:value="${dept.deptno}" readOnly></td>
+		<td><input type="text" name="dname" th:value="${dept.dname}"></td>
+		<td><input type="text" name="loc" th:value="${dept.loc}"></td>
+		<td><input type="submit" value="update"></td>
+	</tr>
+</form>
+
+<form method="post" th:action="@{/dept/delete}">
+	<tr>
+		<input type="hidden" name="deptno" th:value="${dept.deptno}">
+		<input type="submit" value="delete">
+	</tr>
+</form>
+</body>
+</html>
