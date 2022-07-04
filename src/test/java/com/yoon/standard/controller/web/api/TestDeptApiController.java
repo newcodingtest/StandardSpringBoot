@@ -29,7 +29,7 @@ import org.springframework.util.MultiValueMap;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.yoon.standard.controller.dto.ResponseDeptDto;
-import com.yoon.standard.core.dto.ShareDTO;
+import com.yoon.standard.core.dto.ShareDto;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -150,7 +150,7 @@ public class TestDeptApiController {
 		String content = result.getResponse().getContentAsString();
 		Gson gson = new Gson();
 		
-		ShareDTO shareDTO = gson.fromJson(content, ShareDTO.class);
+		ShareDto shareDTO = gson.fromJson(content, ShareDto.class);
 		
 		//THEN
 		log.debug(shareDTO.toString());

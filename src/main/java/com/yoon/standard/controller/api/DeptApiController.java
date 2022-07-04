@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.yoon.standard.controller.dto.RequestDeptDto;
 import com.yoon.standard.controller.dto.ResponseDeptDto;
-import com.yoon.standard.core.dto.ShareDTO;
+import com.yoon.standard.core.dto.ShareDto;
 import com.yoon.standard.service.dept.DeptService;
 
 import lombok.RequiredArgsConstructor;
@@ -48,9 +48,9 @@ public class DeptApiController {
 	}
 	
 	@DeleteMapping(value ="/dept/{deptno}")
-	public ShareDTO deptDelete(@PathVariable("deptno")int deptno)throws Exception {
+	public ShareDto deptDelete(@PathVariable("deptno")int deptno)throws Exception {
 		deptService.deptDelete(deptno);
-		return new ShareDTO(true, "삭제완료");
+		return new ShareDto(true, "삭제완료");
 	}
 
 }

@@ -1,13 +1,13 @@
 package com.yoon.standard.controller.dto;
 
-import com.yoon.standard.core.dto.ShareDTO; 
+import com.yoon.standard.core.dto.ShareDto; 
 import com.yoon.standard.domain.dept.Dept;
 import lombok.Getter;
 import lombok.ToString;
 
 @Getter
 @ToString
-public class ResponseDeptDto extends ShareDTO {
+public class ResponseDeptDto extends ShareDto {
 
 	private Integer deptno;
 	private String dname;
