@@ -7,3 +7,7 @@
 🐤AOP 적용하기
 
 🐤동적 설정파일 구성
+
+🐤NGNIX 적용
+
+🐤docker compose 배포
