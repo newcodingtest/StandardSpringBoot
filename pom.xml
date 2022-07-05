@@ -11,6 +11,7 @@
 	<groupId>com.yoon</groupId>
 	<artifactId>standard</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
 	<name>standard</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
@@ -66,7 +67,7 @@
 	</dependencies>
 
 	<build>
-	
+		<finalName>${finalName}</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
@@ -80,7 +81,14 @@
 					</excludes>
 				</configuration>
 			</plugin>
+		  <plugin>
+			   <groupId>org.springframework.boot</groupId>
+			   <artifactId>spring-boot-maven-plugin</artifactId>
+		  </plugin>
 		</plugins>
 	</build>
+	
+	
+	
 
 </project>
